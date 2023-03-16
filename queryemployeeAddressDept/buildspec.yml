@@ -1,0 +1,25 @@
+---
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      java: openjdk11
+    commands:
+      - echo Installing Gradle
+      - curl -sL https://services.gradle.org/distributions/gradle-7.4-bin.zip -o
+        gradle.zip
+      - unzip -q gradle.zip
+      - export PATH=$PATH:`pwd`/gradle-7.4/bin
+      - gradle --version
+  pre_build:
+    commands:
+      - echo Preparing to build
+      - gradle clean
+  build:
+    commands:
+      - echo Building the application
+      - gradle build
+  post_build:
+    commands:
+      - echo Post build step
+      - ls build/libs/
