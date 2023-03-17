@@ -3,7 +3,7 @@ version: 0
 os: linux
 files:
   - source: /main
-    destination: /home/linux/<spring>
+    destination: /var/www/html/
 permissions:
   - object: /home/linux/<spring>
     owner: root
