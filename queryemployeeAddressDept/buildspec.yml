@@ -6,13 +6,12 @@ phases:
       java: Corretto-17
   build:
     commands:
-      - mvn clean install
+      - ./gradlew build --scan
   post_build:
     commands:
       - echo Build completed
 artifacts:
   files:
-    - target/*.jar
-    - scripts/*.sh
-    - appspec.yml
+    - demo-app1.jar
+    base-directory: 'build/libs'
   discard-paths: yes
